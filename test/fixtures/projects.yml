@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  projectName: MyString
+  evalReleaseDate: 2022-04-13
+
+two:
+  projectName: MyString
+  evalReleaseDate: 2022-04-13

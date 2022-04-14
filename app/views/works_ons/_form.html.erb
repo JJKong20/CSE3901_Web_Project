@@ -1,0 +1,27 @@
+<%= form_with(model: works_on) do |form| %>
+  <% if works_on.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(works_on.errors.count, "error") %> prohibited this works_on from being saved:</h2>
+
+      <ul>
+        <% works_on.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :individualGrade %>
+    <%= form.number_field :individualGrade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :generalComment %>
+    <%= form.text_area :generalComment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

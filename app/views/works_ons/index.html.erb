@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Works Ons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Individualgrade</th>
+      <th>Generalcomment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works_ons.each do |works_on| %>
+      <tr>
+        <td><%= works_on.individualGrade %></td>
+        <td><%= works_on.generalComment %></td>
+        <td><%= link_to 'Show', works_on %></td>
+        <td><%= link_to 'Edit', edit_works_on_path(works_on) %></td>
+        <td><%= link_to 'Destroy', works_on, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Works On', new_works_on_path %>

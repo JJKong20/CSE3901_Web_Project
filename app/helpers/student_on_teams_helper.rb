@@ -1,0 +1,2 @@
+module StudentOnTeamsHelper
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Individualgrade:</strong>
+  <%= @works_on.individualGrade %>
+</p>
+
+<p>
+  <strong>Generalcomment:</strong>
+  <%= @works_on.generalComment %>
+</p>
+
+<%= link_to 'Edit', edit_works_on_path(@works_on) %> |
+<%= link_to 'Back', works_ons_path %>
