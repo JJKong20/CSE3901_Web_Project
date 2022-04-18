@@ -5,4 +5,6 @@ class Student < ApplicationRecord
   has_many :teams, through: :studentOnTeams
   has_many :projects, through: :worksOns
   has_many :projects, through: :evaluates
+
+  validates :email, presence: true, uniqueness: true
 end

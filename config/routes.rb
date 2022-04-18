@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get 'admin_pages/home'
   get 'student_pages/home'
-  get 'static_pages/about'
-  root 'static_pages#home'
+  root 'application#hello'
 
   resources :student_on_teams
   resources :works_ons
