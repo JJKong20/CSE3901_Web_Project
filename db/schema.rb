@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_15_223220) do
+ActiveRecord::Schema.define(version: 2022_04_17_015941) do
 
   create_table "admins", force: :cascade do |t|
     t.string "fname"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_04_15_223220) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password"
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "evaluates", force: :cascade do |t|
@@ -39,6 +40,10 @@ ActiveRecord::Schema.define(version: 2022_04_15_223220) do
   create_table "student_on_teams", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.integer "team_id", null: false
+    t.index ["student_id"], name: "index_student_on_teams_on_student_id"
+    t.index ["team_id"], name: "index_student_on_teams_on_team_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -70,4 +75,6 @@ ActiveRecord::Schema.define(version: 2022_04_15_223220) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "student_on_teams", "students"
+  add_foreign_key "student_on_teams", "teams"
 end

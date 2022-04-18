@@ -1,8 +1,8 @@
 class Student < ApplicationRecord
-  has_many :studentOnTeams, dependent: :destroy
-  has_many :worksOns, dependent: :destroy
-  has_many :evaluates, dependent: :destroy
-  has_many :teams, through: :studentOnTeams
+  has_many :studentOnTeam
+  has_many :worksOns
+  has_many :evaluates
+  has_many :teams, through: :studentOnTeam
   has_many :projects, through: :worksOns
   has_many :projects, through: :evaluates
 end
