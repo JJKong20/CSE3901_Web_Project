@@ -1,4 +1,5 @@
 class Admin < ApplicationRecord
+
     before_save { self.email = email.downcase }
     validates :fname, presence: true
     validates :lname, presence: true
@@ -6,6 +7,10 @@ class Admin < ApplicationRecord
     validates :email, presence: true, 
     format: { with: VALID_EMAIL_REGEX }, 
     uniqueness: true
+<<<<<<< HEAD
     has_secure_password
     validates :password, presence: true, length: {minimum: 5}
+=======
+
+>>>>>>> refs/remotes/origin/main
 end
