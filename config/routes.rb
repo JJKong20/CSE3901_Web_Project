@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home_pages/student_login'
   get 'home_pages/student_create_account'
   get 'home_pages/admin_login'
-  get 'home_pages/admin_create_account'
+  get 'home_pages/admin_create_account', to: 'admins#new'
   get 'admin_pages/home'
   get 'student_pages/home'
   root 'home_pages#home'

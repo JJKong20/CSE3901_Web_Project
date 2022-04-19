@@ -23,14 +23,10 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
 
-    respond_to do |format|
-      if @admin.save
-        format.html { redirect_to admin_url(@admin), notice: "Admin was successfully created." }
-        format.json { render :show, status: :created, location: @admin }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
-      end
+    if @admin.save
+      redirect_to @admin # redirect to admin page of user when done
+    else
+      render 'new'
     end
   end
 
@@ -65,6 +61,6 @@ class AdminsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_params
-      params.require(:admin).permit(:fname, :lname, :email, :adminStatus)
+      params.require(:admin).permit(:fname, :lname, :email, :password, :password_confirmation)
     end
 end
