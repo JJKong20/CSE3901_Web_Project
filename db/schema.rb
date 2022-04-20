@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_231110) do
+ActiveRecord::Schema.define(version: 2022_04_20_181549) do
 
   create_table "admins", force: :cascade do |t|
     t.string "fname"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2022_04_13_231110) do
     t.boolean "adminStatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password"
+    t.string "password_digest"
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "evaluates", force: :cascade do |t|
@@ -38,6 +41,10 @@ ActiveRecord::Schema.define(version: 2022_04_13_231110) do
   create_table "student_on_teams", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.integer "team_id", null: false
+    t.index ["student_id"], name: "index_student_on_teams_on_student_id"
+    t.index ["team_id"], name: "index_student_on_teams_on_team_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -47,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_04_13_231110) do
     t.boolean "adminStatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -61,11 +69,9 @@ ActiveRecord::Schema.define(version: 2022_04_13_231110) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "works_ons", force: :cascade do |t|
-    t.integer "individualGrade"
-    t.text "generalComment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "works_ons" because of following StandardError
+#   Unknown type 'reference' for column 'student_id'
 
+  add_foreign_key "student_on_teams", "students"
+  add_foreign_key "student_on_teams", "teams"
 end
