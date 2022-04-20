@@ -21,18 +21,28 @@ class TeamsController < ApplicationController
 
   # POST /teams or /teams.json
   def create
-    @team = Team.new(team_params)
 
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to team_url(@team), notice: "Team was successfully created." }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    teamSizeString = params[:teamSize]
+    teamSizeInt = teamSizeString.to_i
+
+    puts("--------------------")
+    puts(teamSizeInt)
+
+
+    for x in 1..teamSizeInt do
+
+      teamName = "Team " + x.to_s
+
+      team_params = ActionController::Parameters.new({teamName: teamName})
+
+      team_params.permit!
+      @team = Team.new(team_params)
+    end
+    if @team.save
+      redirect_to "/teams"
     end
   end
+
 
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
