@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2022_04_18_205601) do
     t.string "fname"
     t.string "lname"
     t.string "email"
+    t.boolean "adminStatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password"
     t.string "password_digest"
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
