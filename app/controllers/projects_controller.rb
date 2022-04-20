@@ -23,14 +23,13 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    studentList = Student.all
+    studentListArray = studentList.to_a
+
+    
+    if @project.save
+      studentListArray.each {|student| WorksOn.create!({student: student, project_id: @project.id})}
+      redirect_to "/projects"
     end
   end
 

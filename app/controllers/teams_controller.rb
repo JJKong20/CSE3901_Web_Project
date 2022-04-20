@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1 or /teams/1.json
   def show
+    
   end
 
   # GET /teams/new
@@ -25,22 +26,29 @@ class TeamsController < ApplicationController
     teamSizeString = params[:teamSize]
     teamSizeInt = teamSizeString.to_i
 
-    puts("--------------------")
-    puts(teamSizeInt)
+    numStudents = Student.count
+    numTeams = numStudents / teamSizeInt
 
+    studentList = Student.all.to_a
+    studentList.shuffle
 
-    for x in 1..teamSizeInt do
+    for x in 1..numTeams do
 
       teamName = "Team " + x.to_s
 
       team_params = ActionController::Parameters.new({teamName: teamName})
 
       team_params.permit!
+
       @team = Team.new(team_params)
+      if @team.save
+          for x in 1..teamSizeInt do
+            student = studentList.pop
+            StudentOnTeam.create!({student_id: student.id, team_id: @team.id})
+          end
+      end
     end
-    if @team.save
-      redirect_to "/teams"
-    end
+    redirect_to "/teams"
   end
 
 
