@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'admin_pages/roster'
   get 'admin_pages/projects'
   get 'admin_pages/teams'
+  get 'admin_pages/teamParams'
+  post 'admin_pages/teamParams'
   
 
   root 'home_pages#home'
