@@ -1,0 +1,7 @@
+<%= form_tag("/teamParams", method: "get") do %>
+
+<%= label_tag(:q, "\# students per team") %>
+<%= test_field_tag(:q) %>
+<%= submit_tag("Search") %>
+
+<% end %>

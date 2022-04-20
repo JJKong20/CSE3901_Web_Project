@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1 or /teams/1.json
   def show
+    
   end
 
   # GET /teams/new
@@ -21,18 +22,35 @@ class TeamsController < ApplicationController
 
   # POST /teams or /teams.json
   def create
-    @team = Team.new(team_params)
 
-    respond_to do |format|
+    teamSizeString = params[:teamSize]
+    teamSizeInt = teamSizeString.to_i
+
+    numStudents = Student.count
+    numTeams = numStudents / teamSizeInt
+
+    studentList = Student.all.to_a
+    studentList.shuffle
+
+    for x in 1..numTeams do
+
+      teamName = "Team " + x.to_s
+
+      team_params = ActionController::Parameters.new({teamName: teamName})
+
+      team_params.permit!
+
+      @team = Team.new(team_params)
       if @team.save
-        format.html { redirect_to team_url(@team), notice: "Team was successfully created." }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+          for x in 1..teamSizeInt do
+            student = studentList.pop
+            StudentOnTeam.create!({student_id: student.id, team_id: @team.id})
+          end
       end
     end
+    redirect_to "/teams"
   end
+
 
   # PATCH/PUT /teams/1 or /teams/1.json
   def update

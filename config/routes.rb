@@ -12,14 +12,13 @@ Rails.application.routes.draw do
   get 'admin_pages/roster'
   get 'admin_pages/projects'
   get 'admin_pages/teams'
+  get 'admin_pages/teamParams'
+  post 'admin_pages/teamParams'
   
 
   # comment out this root to merge back with normal functionality'
   root 'home_pages#home'
 
-
-  # uncomment out to retun to normal functionality
-  #root 'home_pages#home'
 
 
   resources :student_on_teams
