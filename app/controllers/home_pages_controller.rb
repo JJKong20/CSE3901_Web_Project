@@ -12,5 +12,6 @@ class HomePagesController < ApplicationController
   end
 
   def admin_create_account
+
   end
 end

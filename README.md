@@ -1,47 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The slides and documentation for the final project can be found here:
 
-Things you may want to cover:
+https://drive.google.com/drive/folders/1QMX_0XOGIzPn7XKrYOOM6aB9aQBoeVDU?usp=sharing
 
-* Ruby version
+To get started with the app, clone the repo and then install the needed gems:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-***************************************************
-
-To get started with the app, clone the repo and then install the needed gems
------
 $  bundle install --without production
------
+
 
 Next, migrate the database:
------
+
 $  rails db:migrate
------
+
 
 Finally, run the test suite to verify that everything is working correctly:
------
+
 $  rails test
------
 
 If the test suite passes, youll. be ready to run the app in a local server:
------
+
 $  rails server
------
