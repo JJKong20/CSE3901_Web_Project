@@ -48,7 +48,7 @@ class TeamsController < ApplicationController
           end
       end
     end
-    redirect_to "/teams"
+    redirect_to "/student_on_teams/index"
   end
 
 

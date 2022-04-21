@@ -10,7 +10,6 @@
   <thead>
     <tr>
       <th>Project Name</th>
-      <th>Group</th>
       <th>Eval Release Date</th>
       <th colspan="1"></th>
     </tr>
@@ -25,9 +24,7 @@
       <% if project.evalReleaseDate < Date.today %>
         <tr>
           <td><%= project.projectName %></td>
-          <td><%= project.teamName %></td>
           <td><%= project.evalReleaseDate %></td>
-          <td><%= link_to 'View', project %></td>
         </tr>
       <% end %>
     <% end %>
