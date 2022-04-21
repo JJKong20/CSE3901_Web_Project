@@ -1,12 +1,25 @@
 <% provide(:title, "Home")%>
-<a href="/home_pages/student_login">Returning Student Login</a>
-<br>
-<a href="/home_pages/student_create_account">New Student Create Account</a>
-<br>
-<a href="/home_pages/admin_login">Returning Instructor Login</a>
-<br>
-<a href="/home_pages/admin_create_account">New Instructor Create Account</a>
-<br>
+
+<div id="branding">
+  <h1>Ruby Review</h1>
+  <img src="https://img.favpng.com/4/13/16/ruby-on-rails-logo-programming-language-rubygems-png-favpng-WhQbCrZxcK4rVV4XP3x5JFYTF.jpg">
+  <p>A peer review tool built with Ruby</p>
+</div>
+
+<div class="flexbox">
+  <div class="flexboxChild">
+    <h1>Students</h1>
+    <p><a href="/home_pages/student_login">Student Login</a></p>
+    <p><a href="/home_pages/student_create_account">New Student Create Account</a></p>
+  </div>
+  <div class="flexboxChild">
+    <h1>Instructors</h1>
+    <p><a href="/home_pages/admin_login">Instructor Login</a></p>
+    <p><a href="/home_pages/admin_create_account">Instructor Create Account</a></p>
+  </div>
+</div>
+
+
 <a href="/admin_pages/home">Admin Main (here for development only)</a>
 <br>
 <a href="/student_pages/home">Student Main (here for development only)</a>
