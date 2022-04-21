@@ -24,7 +24,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
-      redirect_to @admin # redirect to admin page of user when done
+      redirect_to '/home_pages/admin_login' # redirect to admin page of user when done
     else
       render 'new'
     end

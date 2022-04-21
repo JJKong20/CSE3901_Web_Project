@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_181549) do
+ActiveRecord::Schema.define(version: 2022_04_21_003630) do
 
   create_table "admins", force: :cascade do |t|
     t.string "fname"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_04_20_181549) do
     t.boolean "adminStatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password"
     t.string "password_digest"
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
@@ -55,6 +54,8 @@ ActiveRecord::Schema.define(version: 2022_04_20_181549) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password"
+    t.integer "admin_id", null: false
+    t.index ["admin_id"], name: "index_students_on_admin_id"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -69,9 +70,18 @@ ActiveRecord::Schema.define(version: 2022_04_20_181549) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "works_ons" because of following StandardError
-#   Unknown type 'reference' for column 'student_id'
+  create_table "works_ons", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_works_ons_on_project_id"
+    t.index ["student_id"], name: "index_works_ons_on_student_id"
+  end
 
   add_foreign_key "student_on_teams", "students"
   add_foreign_key "student_on_teams", "teams"
+  add_foreign_key "students", "admins"
+  add_foreign_key "works_ons", "projects"
+  add_foreign_key "works_ons", "students"
 end

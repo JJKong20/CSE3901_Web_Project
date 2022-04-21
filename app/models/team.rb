@@ -3,4 +3,5 @@ class Team < ApplicationRecord
   has_many :submissions
   has_many :students, through: :studentOnTeam
   has_many :projects, through: :submissions
+  has_many :worksOns
 end

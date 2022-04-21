@@ -1,11 +1,27 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
-
+  
+  
   # GET /students or /students.json
   def index
-    @students = Student.all
+    @students = current_user_admin.students
   end
 
+  def signup
+    @student = Student.find_by_email(params[:email])
+    if !@student.nil?
+      @student.fname = params[:fname]
+      @student.lname = params[:lname]
+      @student.password = params[:password]
+      if @student.save
+        redirect_to '/home_pages/student_login'
+      else
+        render 'new'
+      end
+    end
+  end
+
+  
   # GET /students/1 or /students/1.json
   def show
   end
@@ -22,7 +38,7 @@ class StudentsController < ApplicationController
   # POST /students or /students.json
   def create
     @student = Student.new(student_params)
-
+    @student.admin_id = current_user_admin.id
     respond_to do |format|
       if @student.save
         format.html { redirect_to student_url(@student), notice: "Student was successfully created." }
