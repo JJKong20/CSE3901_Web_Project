@@ -7,5 +7,11 @@ class Student < ApplicationRecord
   #has_many :projects, through: :evaluates
   belongs_to :admin
 
-  validates :email, presence: true, uniqueness: true
+  before_save { self.email = email.downcase }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, 
+  format: { with: VALID_EMAIL_REGEX }, 
+  uniqueness: true
+  validates :password, presence: true, length: { minimum: 5 }, on: :signup
+  has_secure_password
 end
