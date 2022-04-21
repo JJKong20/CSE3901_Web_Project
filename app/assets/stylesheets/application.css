@@ -15,8 +15,15 @@
  */
 
  footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    background-color: lightgrey;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: lightgrey;
+  }
+  
+  
+  .redGradient {
+      --tw-gradient-from: #ef4444;
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(239 68 68 / 0));
+      --tw-gradient-to: #e11d48;
   }

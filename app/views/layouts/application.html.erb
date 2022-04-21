@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title><%= yield(:title) %> | Peer Evaluation Tool</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,18 +9,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Roboto&display=swap" rel="stylesheet">
   </head>
-  <h1><%= yield(:title)%> Page</h1>
-  <div class="container">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}")%>
-    <% end %>
-  </div>
+
+  <h1><%= yield(:title)%></h1>
+
+  <%flash.each do |message_type, message|%>
+    <div class="alert alert-<%= message_type %>"><%= message%></div>
+  <%end%>
 
   <body>
     <%= yield %>
   </body>
+
+  <!--
   <footer class="footer">
-  <p>Peer Evaluation Tool<br>
   </footer>
+  -->
+
 </html>
