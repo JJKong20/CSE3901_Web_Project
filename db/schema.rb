@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_183117) do
+ActiveRecord::Schema.define(version: 2022_04_21_174230) do
 
   create_table "admins", force: :cascade do |t|
     t.string "fname"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2022_04_21_183117) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "admin_id", null: false
     t.string "password_digest"
-    t.string "password"
     t.index ["admin_id"], name: "index_students_on_admin_id"
   end
 

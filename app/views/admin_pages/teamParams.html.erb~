@@ -1,5 +1,0 @@
-  <%= form_with(url: "../teams", method: "post") do %>
-    <%= label_tag(:teamSize, "Team size:") %>
-    <%= text_field_tag(:teamSize) %>
-    <%= submit_tag("Team size submission") %>
-  <% end %>
