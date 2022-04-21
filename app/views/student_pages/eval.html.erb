@@ -1,10 +1,37 @@
 <% provide(:title, "Past Evaluations")%>
+
 <br>
 <p>This is where a user will be prompted to select a project, and then the evaluations (from "evaluates", these are given by teammates on a per project basis) and the final grade/comments (from "works_on", these are given by teacher) corresponding to that project.
 <br>
 
-<br>
-
 <%= link_to 'Back', 'home' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Group</th>
+      <th>Eval Release Date</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <!--
+  For all the projects for a particular student,
+  if the project is closed, provide a link to view the project
+  -->
+  <tbody>
+    <% @student.projects.each do |project| %>
+      <% if project.evalReleaseDate < Date.today %>
+        <tr>
+          <td><%= project.projectName %></td>
+          <td><%= project.teamName %></td>
+          <td><%= project.evalReleaseDate %></td>
+          <td><%= link_to 'View', project %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
 
 <p>Find me in app/views/student_pages/eval.html.erb</p>
