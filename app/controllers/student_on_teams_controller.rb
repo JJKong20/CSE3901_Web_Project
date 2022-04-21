@@ -4,6 +4,8 @@ class StudentOnTeamsController < ApplicationController
   # GET /student_on_teams or /student_on_teams.json
   def index
     @student_on_teams = StudentOnTeam.all
+    @admin = Admin.find_by(id: current_user_admin)
+    @students = @admin.students
   end
 
   # GET /student_on_teams/1 or /student_on_teams/1.json

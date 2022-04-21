@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'admin_pages/home'
   get 'student_pages/home'
   get 'student_pages/eval'
+  
 
   get 'admin_pages/home'
   get 'admin_pages/roster'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get 'admin_pages/teams'
   get 'admin_pages/teamParams'
   post 'admin_pages/teamParams'
+  get 'student_on_teams/index'
   
 
   # comment out this root to merge back with normal functionality'

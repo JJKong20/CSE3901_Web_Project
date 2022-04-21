@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Student On Teams</h1>
+<h1>Teams</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @student_on_teams.each do |student_on_team| %>
+    <% @student_on_teams.each do |student| %>
       <tr>
-        <td><%= link_to 'Show', student_on_team %></td>
-        <td><%= link_to 'Edit', edit_student_on_team_path(student_on_team) %></td>
-        <td><%= link_to 'Destroy', student_on_team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= Student.find_by(id: student.student_id).fname %></td>
+        <td><%= Student.find_by(id: student.student_id).lname %></td>
+        <td><%= Team.find_by(id: student.team_id).teamName %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Student On Team', new_student_on_team_path %>
+<%= link_to 'Back', '/admin_pages/teams' %>
