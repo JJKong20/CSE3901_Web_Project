@@ -12,6 +12,6 @@ class Student < ApplicationRecord
   validates :email, presence: true, 
   format: { with: VALID_EMAIL_REGEX }, 
   uniqueness: true
+  has_secure_password(validations: false)
   validates :password, presence: true, length: { minimum: 5 }, on: :signup
-  has_secure_password
 end
