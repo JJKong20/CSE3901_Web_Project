@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_174230) do
+ActiveRecord::Schema.define(version: 2022_04_21_205147) do
 
   create_table "admins", force: :cascade do |t|
     t.string "fname"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 2022_04_21_174230) do
     t.text "comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_evaluates_on_project_id"
+    t.index ["student_id"], name: "index_evaluates_on_student_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -79,6 +83,8 @@ ActiveRecord::Schema.define(version: 2022_04_21_174230) do
     t.index ["student_id"], name: "index_works_ons_on_student_id"
   end
 
+  add_foreign_key "evaluates", "projects"
+  add_foreign_key "evaluates", "students"
   add_foreign_key "student_on_teams", "students"
   add_foreign_key "student_on_teams", "teams"
   add_foreign_key "students", "admins"

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :project, "Project" %>
+    <%= form.collection_select :project_id, Project.order(:name),:id,:name, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating %>
   </div>
