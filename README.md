@@ -4,6 +4,8 @@
 
 We design a peer evaluation tool that support many functions. A user should be able to submit scores and comments for all of their teammates (and only their teammates). The application should support multiple peer evaluations over the semester (eg, for each project). Also, an administrative interface should provide the instructor/TA with an easy, intuitive way to populate the class, and generate teams. An administrative interface should give a useful view of the scores assigned within a team. Also, we add some extra features in our project, such as the authentication and multiple group structures. 
 
+Link: http://web.cse.ohio-state.edu/~giles.25/3901/labs/project6.html
+
 # EXTRA FEATURES
 
 We add some extra features to our project. The first one is authentication/login. Peer evaluations should be connected to an authenticated user, preventing forging of evaluations. Each Admin and Student must have a valid password. The second one is support for multiple group structures. Because each student in this course belongs to tech group and project group. The third one is evaluation release date. The evaluation will release until the day which we set. 
