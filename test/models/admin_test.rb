@@ -27,4 +27,10 @@ class AdminTest < ActiveSupport::TestCase
     @admin.email = " "
     assert_not @admin.valid?
   end
+  
+  test "email addresses should be unique" do
+    duplicate_admin = @admin.dup
+    @admin.save
+    assert_not duplicate_admin.valid?
+  end
 end
