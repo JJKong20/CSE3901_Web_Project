@@ -13,6 +13,9 @@ class EvaluatesController < ApplicationController
   # GET /evaluates/new
   def new
     @evaluate = Evaluate.new
+    @student = Student.find_by(id: current_user_student)
+    @team = @student.teams[0]
+    @teammates = @team.students
   end
 
   # GET /evaluates/1/edit
@@ -22,10 +25,12 @@ class EvaluatesController < ApplicationController
   # POST /evaluates or /evaluates.json
   def create
     @evaluate = Evaluate.new(evaluate_params)
+    @evaluate.student_id = current_user_student.id
+    @evaluate.sender_id = current_user_student.id
 
     respond_to do |format|
       if @evaluate.save
-        format.html { redirect_to evaluate_url(@evaluate), notice: "Evaluate was successfully created." }
+        format.html { redirect_to '/evaluates/new', notice: "Evaluate was successfully created." }
         format.json { render :show, status: :created, location: @evaluate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +70,6 @@ class EvaluatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def evaluate_params
-      params.require(:evaluate).permit(:rating, :comments)
+      params.require(:evaluate).permit(:rating, :comments, :project_id, :recipient_id)
     end
 end

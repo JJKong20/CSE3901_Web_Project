@@ -11,23 +11,29 @@
     <tr>
       <th>Project Name</th>
       <th>Eval Release Date</th>
+      <th>Overall Evaluation Grade</th>
+      <th>Evaluation Comments</th>
       <th colspan="1"></th>
     </tr>
   </thead>
 
   <!--
-  For all the projects for a particular student,
-  if the project is closed, provide a link to view the project
+  For each evaluation, list project name, info, and evaluation rating/comments
   -->
   <tbody>
-    <% @student.projects.each do |project| %>
-      <% if project.evalReleaseDate < Date.today %>
-        <tr>
-          <td><%= project.projectName %></td>
-          <td><%= project.evalReleaseDate %></td>
-        </tr>
-      <% end %>
-    <% end %>
+    <% @evaluations.each do |evaluation| %>
+      <% project = evaluation.project %>
+        <% if project.evalReleaseDate < Date.today %>
+          <tr>
+            <td><%= project.projectName %></td>
+            <td><%= project.evalReleaseDate %></td>
+            <% if evaluation.project_id == project.id %>
+              <td><%= evaluation.rating %></td>
+              <td><%= evaluation.comments %></td>
+            <%end%>
+          </tr>
+        <% end %>
+    <%end%>
   </tbody>
 </table>
 

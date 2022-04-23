@@ -11,9 +11,16 @@
     </div>
   <% end %>
 
+  
+  <div class="field">
+    <%= form.label :student, "Team Member" %>
+    <%= form.collection_select :recipient_id, Student.order(:fname),:id, :fname, include_blank: false%>
+  </div>
+  
+
   <div class="field">
     <%= form.label :project, "Project" %>
-    <%= form.collection_select :project_id, Project.order(:name),:id,:name, include_blank: true %>
+    <%= form.collection_select :project_id, Project.order(:projectName),:id,:projectName, include_blank: false %>
   </div>
 
   <div class="field">

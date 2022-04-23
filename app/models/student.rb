@@ -4,6 +4,8 @@ class Student < ApplicationRecord
   has_many :evaluates
   has_many :teams, through: :studentOnTeam
   has_many :projects, through: :worksOn
+  has_many :sent_evaluates, :class_name => 'Evaluate', :foreign_key => 'sender_id'
+  has_many :recieved_evaluates, :class_name => 'Evaluate', :foreign_key => 'recipient_id'
   #has_many :projects, through: :evaluates
   belongs_to :admin
 
