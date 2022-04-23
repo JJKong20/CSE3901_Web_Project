@@ -34,7 +34,7 @@ Finally, run the test suite to verify that everything is working correctly:
 
 $  rails test
 
-If the test suite passes, youll. be ready to run the app in a local server:
+Then, you'll be ready to run the app in a local server:
 
 $  rails server
 
