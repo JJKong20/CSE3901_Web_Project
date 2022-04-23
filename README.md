@@ -52,8 +52,8 @@ Our project basically satisfy the core functionality, and add some extra feature
 
 Cade Brautigan -- CSS style, Projects controller, HTML page
 
-Yu Fu -- Model, Teams controller, Database design, Test cases, Readme
+Yu Fu -- Model generation, Teams controller, Database design, Test cases, Readme
 
-JJ Kong -- Home page controller, Student page controller, Sessions controller, HTML page, CSS style, Database Design
+JJ Kong -- Home page controller, Student page controller, Sessions controller, Evaluates controller, Admin controller, Student controller, Application controller, Sessions controller, Sessions (student) controller, Student on teams controller, HTML page, CSS style, Database Design, Database migrations
 
-Nicholas Llewellyn -- Admin page controller, Evaluates controller, HTML page, Database Design
+Nicholas Llewellyn -- Admin page controller, Projects controller, Student on teams controller, Teams controller, HTML page, Database Design
