@@ -1,12 +1,11 @@
 <% provide(:title, "Student Main Page")%>
-<br>
-<p>We will need to pass the student id to both of these so that a student can only interact with things they have access too </p>
-<a href="/evaluates/new">Complete Current Evaluation</a>
-<br>
-<a href="/student_pages/eval">View Past Evaluations</a>
-<br>
-<a href="/home_pages/home">Log out</a>
-<br>
+
+<p><a class="button-7" href="/evaluates/new">Complete Current Evaluation</a></p>
+
+<p><a class="button-8" href="/student_pages/eval">View Past Evaluations</a></p>
+
+<%= link_to 'Log out', "/home_pages/home" %>
+
 
 
 
