@@ -14,7 +14,7 @@
   
   <div class="field">
     <%= form.label :student, "Team Member" %>
-    <%= form.collection_select :recipient_id, Student.order(:fname),:id, :fname, include_blank: false%>
+    <%= form.collection_select :recipient_id, @teammates.order(:fname),:id, :fname, include_blank: false%>
   </div>
   
 

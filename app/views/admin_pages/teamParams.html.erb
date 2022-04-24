@@ -1,7 +1,8 @@
+  <% provide(:title, "Create Teams")%>
   <%= form_with(url: "../teams.json", method: "post") do %>
     <%= label_tag(:teamSize, "Team size:") %>
     <%= text_field_tag(:teamSize) %>
     <%= submit_tag("Team size submission") %>
   <% end %>
 
-  <%= link_to 'Back', "/admin_pages/home" %>
+  <%= link_to 'Back', "/admin_pages/teams" %>

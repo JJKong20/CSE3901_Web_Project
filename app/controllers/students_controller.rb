@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
       if @student.save
         redirect_to '/home_pages/student_login'
       else
+        flash.now[:danger] = "Could not sign up, please check that your instructor added you to the class"
         render 'new'
       end
     end
