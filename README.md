@@ -54,4 +54,4 @@ Yu Fu -- Model generation, Teams controller, Database design, Test cases, Readme
 
 JJ Kong -- Home pages controller, Student page controller, Evaluates controller, Admin controller, Student controller, Application controller, Sessions controller, Sessions (student) controller, Student on teams controller, Signups and Logins, HTML page, CSS style, Database Design, Database migrations, Authentication
 
-Nicholas Llewellyn -- Admin page controller, Projects controller, Student on teams controller, Teams controller, HTML page, Database Design
+Nicholas Llewellyn -- Admin page controller, Student controller, Projects controller, Student on teams controller, Teams controller, HTML page, Database Design
