@@ -52,6 +52,6 @@ Cade Brautigan -- CSS style, Projects controller, HTML page
 
 Yu Fu -- Model generation and modification, HTML page, Teams controller, Database design, Test cases, Readme
 
-JJ Kong -- Home pages controller, Student page controller, Sessions controller, Evaluates controller, Admin controller, Student controller, Application controller, Sessions controller, Sessions (student) controller, Student on teams controller, Signups and Logins, HTML page, CSS style, Database Design, Database migrations, Authentication
+JJ Kong -- Home pages controller, Student page controller, Evaluates controller, Admin controller, Student controller, Application controller, Sessions controller, Sessions (student) controller, Student on teams controller, Signups and Logins, HTML page, CSS style, Database Design, Database migrations, Authentication
 
 Nicholas Llewellyn -- Admin page controller, Projects controller, Student on teams controller, Teams controller, HTML page, Database Design
